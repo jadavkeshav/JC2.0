@@ -7,6 +7,7 @@ const CoursesPage = () => {
             <Link href="/teacher/create">
                 <Button>New Cource</Button>
             </Link>
+           
         </div>
     );
 }
