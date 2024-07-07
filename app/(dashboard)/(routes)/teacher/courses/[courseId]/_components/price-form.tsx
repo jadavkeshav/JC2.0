@@ -21,22 +21,21 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
 import { Course } from "@prisma/client";
+import { formatPrice } from "@/lib/format";
 
-interface DescriptionFormProps {
+interface PriceFormProps {
     initialData: Course;
     courseId: String;
 }
 
 const formSchema = z.object({
-    description: z.string().min(1, {
-        message: "Description is required",
-    })
+    price: z.coerce.number({ invalid_type_error: "Price is required" }),
 })
 
-export const DescriptionForm = ({
+export const PriceForm = ({
     initialData,
     courseId
-}: DescriptionFormProps) => {
+}: PriceFormProps) => {
     const [isEditing, setIsEditing] = useState(false);
 
     const toggleEdit = () => setIsEditing((current) => !current);
@@ -46,7 +45,7 @@ export const DescriptionForm = ({
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            description: initialData?.description || "",
+            price: initialData?.price || undefined,
         },
     });
 
@@ -66,14 +65,14 @@ export const DescriptionForm = ({
     return (
         <div className="mt-6 border bg-slate-100 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Course Description
+                Course Price
                 <Button onClick={toggleEdit}  variant={"ghost"} >
                     {isEditing ? (
                         <>Cancel</>
                     ): (
                             <>
                                 <Pencil className="h-4 w-4 mr-2" />
-                                Edit Description
+                                Edit Price
                             </>
                         )
                     }
@@ -84,9 +83,9 @@ export const DescriptionForm = ({
                 !isEditing && (
                     <p className={cn(
                         "text-sm mt-2",
-                        !initialData.description && "text-slate-500 italic" 
+                        !initialData.price && "text-slate-500 italic" 
                     )}>
-                        {initialData.description || "No description"}
+                        {initialData.price ? formatPrice(initialData.price) : "No Price"}
                     </p>
                 )
             }
@@ -95,13 +94,15 @@ export const DescriptionForm = ({
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
                         <FormField 
                             control={form.control}
-                            name="description"
+                            name="price"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Textarea 
+                                        <Input 
+                                            type="number"
+                                            step="0.01"
                                             disabled={isSubmitting}
-                                            placeholder="e.g. 'Learn how to build a full-stack app with Next.js, Prisma, and Tailwind CSS.'"
+                                            placeholder="Set a price for your course"
                                             {...field}
                                         />
                                     </FormControl>
