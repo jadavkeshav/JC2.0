@@ -65,21 +65,24 @@ export const VideoPlayer = ({
             )}
 
             {!isLocked && (
-                <ReactPlayer
-                    url={url}
-                    // className={cn(!isReady && "hidden")}
-                    onReady={() => {
-                        setIsReady(true);
-                        console.log("ReactPlayer onReady triggered");
-                    }}
-                    onError={(e) => console.error('Error loading video:', e)}
-                    onEnded={() => console.log("Video has ended")}
-                    controls
-                    config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                    width="100%"
-                    height="100%"
+              
 
-                />
+
+                        <ReactPlayer
+                            url={url}
+                            onReady={() => {
+                                setIsReady(true);
+                                console.log("ReactPlayer onReady triggered");
+                            }}
+                            onError={(e) => console.error('Error loading video:', e)}
+                            onEnded={() => console.log("Video has ended")}
+                            controls
+                            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
+                            width="100%"
+                            height="100%"
+
+                  />
+
             )}
         </div>
     );
