@@ -95,7 +95,7 @@ export async function POST(
                 userId: user.id
             }
         });
-
+        console.log(session.url)
         return NextResponse.json({ url: session.url });
 
     } catch (error) {
