@@ -25,7 +25,7 @@ export const SearchInput = () => {
                 categoryId: currentCategoryId
             }
         },{
-                skipNull: true, skipEmptystring: true
+                skipNull: true, skipEmptyString: true
         });
 
         router.push(url);
