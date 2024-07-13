@@ -10,7 +10,7 @@ if (!process.env.STRIPE_API_KEY) {
 }
 
 const stripeClient = new Stripe(process.env.STRIPE_API_KEY, {
-    apiVersion: "2022-11-15", // Use the appropriate API version
+    apiVersion: "2024-06-20", // Use the appropriate API version
 });
 
 export async function POST(

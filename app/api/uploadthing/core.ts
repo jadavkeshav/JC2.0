@@ -21,11 +21,11 @@ export const ourFileRouter = {
         .middleware(() => handleAuth())
         .onUploadComplete(() => { }),
     courseAttachment: f({
-        text: { maxFileSize: "10MB" },   // Example max size for text files
-        image: { maxFileSize: "10MB" },  // Example max size for image files
+        text: { maxFileSize: "32MB" },   // Example max size for text files
+        image: { maxFileSize: "32MB" },  // Example max size for image files
         video: { maxFileSize: "1GB" },   // Example max size for video files
-        audio: { maxFileSize: "50MB" },  // Example max size for audio files
-        pdf: { maxFileSize: "20MB" }     // Example max size for pdf files
+        audio: { maxFileSize: "32MB" },  // Example max size for audio files
+        pdf: { maxFileSize: "32MB" }     // Example max size for pdf files
     })
         .middleware(() => handleAuth())
         .onUploadComplete(() => { }),
