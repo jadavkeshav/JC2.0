@@ -10,9 +10,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 interface ActionsProps {
-    disabled: Boolean;
+    disabled: boolean;
     courseId: string;
-    isPublished: Boolean
+    isPublished: boolean
 }
 
 export const Actions = ({

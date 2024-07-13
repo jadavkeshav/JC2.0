@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 interface CourseProgressButtonProps {
     chapterId: string;
     courseId: string;
-    isCompleted?: Boolean;
+    isCompleted?: boolean;
     nextChapterId?: string;
 }
 

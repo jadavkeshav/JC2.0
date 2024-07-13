@@ -45,11 +45,11 @@ const ChapterIdPage = async ({
     ]
 
     const totalFields = requiredFields.length;
-    const completedFields = requiredFields.filter(Boolean).length;
+    const completedFields = requiredFields.filter(boolean).length;
 
     const completionText = `${completedFields}/${totalFields}`;
 
-    const isComplete = requiredFields.every(Boolean);
+    const isComplete = requiredFields.every(boolean);
 
 
     return (
