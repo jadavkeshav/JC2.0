@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Loader2, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useConfettiStore } from '@/hooks/use-confetti-store';
+import toast from 'react-hot-toast';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 interface VideoPlayerProps {
     url: string;
@@ -26,6 +30,33 @@ export const VideoPlayer = ({
 }: VideoPlayerProps) => {
     const [isReady, setIsReady] = useState(false);
     const [isClient, setIsClient] = useState(false);
+    const router = useRouter();
+    const confetti = useConfettiStore();
+
+    const onEnd = async () => {
+        try {
+            await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
+                isCompleted: true,
+            });
+
+            if (!nextChapterId) {
+                confetti.onOpen();
+            }
+
+
+
+            toast.success("Course progress updated");
+            
+            if (nextChapterId) {
+                router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
+            }
+            router.refresh();
+
+        } catch (error) {
+            toast.error("Something went wrong");
+            console.log("VIDEO_PLEYER_ERRR", error)
+        }
+    }
 
     useEffect(() => {
         setIsClient(true);
@@ -75,7 +106,7 @@ export const VideoPlayer = ({
                                 console.log("ReactPlayer onReady triggered");
                             }}
                             onError={(e) => console.error('Error loading video:', e)}
-                            onEnded={() => console.log("Video has ended")}
+                            onEnded={onEnd}
                             controls
                             config={{ file: { attributes: { controlsList: 'nodownload' } } }}
                             width="100%"
