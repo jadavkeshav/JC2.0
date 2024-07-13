@@ -7,9 +7,9 @@ import { IconType } from "react-icons";
 
 
 interface CategoryItemProps {
-    label: String;
+    label: string;
     icon?: IconType;
-    value?: String;
+    value?: string;
     // onClick: () => void;
 }
 export const CategoryItem = ({
@@ -34,7 +34,7 @@ export const CategoryItem = ({
                 title: currentTitle,
                 categoryId: isSelected ? null : value
             }
-        }, { skipNull: true, skipEmptyString: true });
+        }, { skipNull: true, skipEmptystring: true });
 
         router.push(url);
     }

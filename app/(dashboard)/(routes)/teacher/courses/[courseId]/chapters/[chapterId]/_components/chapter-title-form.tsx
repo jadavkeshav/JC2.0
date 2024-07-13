@@ -21,10 +21,10 @@ import { useRouter } from "next/navigation";
 
 interface ChapterTitleFormProps {
     initialData: {
-        title: String;
+        title: string;
     };
-    courseId: String;
-    chapterId: String;
+    courseId: string;
+    chapterId: string;
 }
 
 const formSchema = z.object({

@@ -27,8 +27,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 interface ChapterAccessFormProps {
     initialData: Chapter;
-    courseId: String;
-    chapterId: String;
+    courseId: string;
+    chapterId: string;
 }
 
 const formSchema = z.object({

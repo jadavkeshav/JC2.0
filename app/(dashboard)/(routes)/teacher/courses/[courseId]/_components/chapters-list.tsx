@@ -16,8 +16,8 @@ import { Badge } from "@/components/ui/badge";
 
 interface ChaptersListProps {
     items: Chapter[];
-    onReorder: (updateData: { id: String; position: number }[]) => void;
-    onEdit: (id: String) => void;
+    onReorder: (updateData: { id: string; position: number }[]) => void;
+    onEdit: (id: string) => void;
 }
 
 export const ChaptersList = ({

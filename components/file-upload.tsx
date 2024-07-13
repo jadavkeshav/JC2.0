@@ -5,7 +5,7 @@ import { OurFileRouter } from "@/app/api/uploadthing/core";
 import toast from "react-hot-toast";
 
 interface FileUploadProps {
-    onChange: (url? : String) => void;
+    onChange: (url? : string) => void;
     endpoint: keyof typeof OurFileRouter;
 }
 

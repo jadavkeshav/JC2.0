@@ -25,7 +25,7 @@ import { ComboboxDemo } from "@/components/ui/combobox";
 
 interface CategoryFormProps {
     initialData: Course;
-    courseId: String;
+    courseId: string;
     options: { label: string; value: string; }[];
 }
 

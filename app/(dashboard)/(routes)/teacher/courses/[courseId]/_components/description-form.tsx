@@ -24,7 +24,7 @@ import { Course } from "@prisma/client";
 
 interface DescriptionFormProps {
     initialData: Course;
-    courseId: String;
+    courseId: string;
 }
 
 const formSchema = z.object({

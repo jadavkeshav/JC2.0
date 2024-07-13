@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 interface ActionsProps {
     disabled: Boolean;
-    courseId: String;
+    courseId: string;
     isPublished: Boolean
 }
 

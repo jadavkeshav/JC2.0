@@ -25,8 +25,8 @@ import { Preview } from "@/components/preview";
 
 interface ChapterDescriptionFormProps {
     initialData: Chapter;
-    courseId: String;
-    chapterId: String;
+    courseId: string;
+    chapterId: string;
 }
 
 const formSchema = z.object({

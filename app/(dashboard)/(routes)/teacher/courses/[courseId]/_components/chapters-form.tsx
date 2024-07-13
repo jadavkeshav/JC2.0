@@ -25,7 +25,7 @@ import { ChaptersList } from "./chapters-list";
 
 interface ChaptersFormProps {
     initialData: Course & { chapters: Chapter[] };
-    courseId: String;
+    courseId: string;
 }
 
 const formSchema = z.object({
@@ -67,7 +67,7 @@ export const ChaptersForm = ({
     }
 
 
-    const onReorder = async (updateData: { id: String; position: number }[]) => {
+    const onReorder = async (updateData: { id: string; position: number }[]) => {
         try {
             setIsUpdating(true);
             await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
@@ -82,7 +82,7 @@ export const ChaptersForm = ({
         }
     }
 
-    const onEdit = (id: String) => {
+    const onEdit = (id: string) => {
         router.push(`/teacher/courses/${courseId}/chapters/${id}`)
     }
 

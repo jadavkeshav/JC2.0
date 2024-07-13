@@ -19,7 +19,7 @@ const bannerVariants = cva(
 )
 
 interface BannerProps extends VariantProps<typeof bannerVariants> {
-    label: String
+    label: string
 }
 
 const iconMap = {

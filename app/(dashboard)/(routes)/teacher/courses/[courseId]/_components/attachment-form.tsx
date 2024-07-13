@@ -17,7 +17,7 @@ import { FileUpload } from "@/components/file-upload";
 
 interface AttachmentFormProps {
     initialData: Course & { attachments: Attachment[] }
-    courseId: String;
+    courseId: string;
 }
 
 const formSchema = z.object({

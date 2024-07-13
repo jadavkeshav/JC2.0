@@ -10,10 +10,10 @@ import toast from "react-hot-toast";
 
 
 interface CourseProgressButtonProps {
-    chapterId: String;
-    courseId: String;
+    chapterId: string;
+    courseId: string;
     isCompleted?: Boolean;
-    nextChapterId?: String;
+    nextChapterId?: string;
 }
 
 export const CourseProgressButton = ({
