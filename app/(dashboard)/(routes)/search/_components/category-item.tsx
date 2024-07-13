@@ -34,7 +34,7 @@ export const CategoryItem = ({
                 title: currentTitle,
                 categoryId: isSelected ? null : value
             }
-        }, { skipNull: true, skipEmptystring: true });
+        }, { skipNull: true, skipEmptyString: true });
 
         router.push(url);
     }
